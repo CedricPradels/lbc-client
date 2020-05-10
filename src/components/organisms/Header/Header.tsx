@@ -14,11 +14,6 @@ const StyledLogo = styled(Image)`
   cursor: pointer;
 `;
 
-const StyledButton = styled(Button)`
-  align-self: center;
-  margin: 0 10px;
-`;
-
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
@@ -30,6 +25,11 @@ const Nav = styled.nav`
   display: flex;
 `;
 
+const StyledButton = styled(Button)`
+  align-self: center;
+  margin: 0 15px;
+`;
+
 const Connection = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,6 +38,10 @@ const Connection = styled.div`
   padding: 0 20px;
   text-align: center;
   cursor: pointer;
+  &:hover {
+    background-color: #f56b2a;
+    color: #fff;
+  }
 `;
 
 const Search = styled.div`
@@ -46,6 +50,10 @@ const Search = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  &:hover {
+    background-color: #f56b2a;
+    color: #fff;
+  }
 `;
 
 interface Props {}
