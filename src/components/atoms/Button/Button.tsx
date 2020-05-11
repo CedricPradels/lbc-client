@@ -2,6 +2,8 @@ import React from "react";
 
 import styled from "styled-components";
 
+import Loading from "../Loading";
+
 interface Props {
   loading?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -41,7 +43,7 @@ const Button: React.FC<Props> = ({
         }
       }}
     >
-      {children}
+      {loading ? <Loading /> : children}
     </StyledButton>
   );
 };

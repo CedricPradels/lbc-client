@@ -27,6 +27,19 @@ const PasswordWrapper = styled.div`
   grid-gap: 20px;
 `;
 
+const CheckBox = styled.input.attrs(({ type }) => ({ type: "checkbox" }))`
+  border: 1px solid black;
+  margin-right: 10px;
+`;
+
+const CdgCdu = styled.span`
+  font-family: "Roboto", sans-serif;
+`;
+
+const CdgCduWrapper = styled.div`
+  display: flex;
+`;
+
 const CREATE_USER = gql`
   mutation Register($email: String!, $alias: String, $password: String!) {
     register(email: $email, password: $password, alias: $alias) {
@@ -34,6 +47,7 @@ const CREATE_USER = gql`
     }
   }
 `;
+
 interface Props {}
 
 const benefits = [
@@ -64,7 +78,7 @@ const RegisterForm: React.FC<Props> = ({}) => {
       if (data.register === null) {
         resetFields();
       } else {
-        history.push("/");
+        history.push("/login");
       }
     },
   });
@@ -89,7 +103,7 @@ const RegisterForm: React.FC<Props> = ({}) => {
         title="Créer un compte"
         onSubmit={(e) => {
           e.preventDefault();
-          if (password !== confirm) {
+          if (password !== confirm || !accept) {
             resetFields();
           } else {
             register({ variables: { email, alias, password } });
@@ -125,6 +139,10 @@ const RegisterForm: React.FC<Props> = ({}) => {
             type="password"
           />
         </PasswordWrapper>
+        <CdgCduWrapper>
+          <CheckBox checked={accept} onChange={() => setAccept(!accept)} />
+          <CdgCdu>J'accepte les CDG et CDU</CdgCdu>
+        </CdgCduWrapper>
       </Form>
     </StyledRegisterBox>
   );
