@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import styled from "styled-components";
+
+import Cookies from "js-cookie";
 
 import { PlusSquare, User, Search as Lens } from "react-feather";
 
@@ -56,9 +58,12 @@ const Search = styled.div`
   }
 `;
 
-interface Props {}
+interface Props {
+  token: string | undefined;
+  setToken: React.Dispatch<React.SetStateAction<string | undefined>>;
+}
 
-const Header: React.FC<Props> = () => {
+const Header: React.FC<Props> = ({ token, setToken }) => {
   const history = useHistory();
 
   return (
@@ -75,10 +80,22 @@ const Header: React.FC<Props> = () => {
           Rechercher
         </Search>
       </Nav>
-      <Connection onClick={() => history.push("/login")}>
-        <User />
-        Se connecter
-      </Connection>
+      {token === undefined ? (
+        <Connection onClick={() => history.push("/login")}>
+          <User />
+          Se connecter
+        </Connection>
+      ) : (
+        <Connection
+          onClick={() => {
+            setToken(undefined);
+            Cookies.remove("token");
+          }}
+        >
+          <User fill="#000" />
+          Se déconnecter
+        </Connection>
+      )}
     </StyledHeader>
   );
 };

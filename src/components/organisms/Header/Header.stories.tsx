@@ -10,6 +10,6 @@ export default {
 
 export const search = () => (
   <Router>
-    <Header />
+    <Header token="ahah" setToken={() => {}} />
   </Router>
 );

@@ -12,3 +12,9 @@
 - use styled component theme
 
 ## TODO
+
+- Use useContext Hook for token
+- Use themes for styled components
+- Improve respect of atomic design pattern
+- Add Filds fail user information
+- Search how to send images to backend

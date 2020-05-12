@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./reset.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 
 import styled from "styled-components";
+
+import Cookies from "js-cookie";
 
 import Login from "./pages/Login";
 import Offer from "./pages/Offer";
@@ -20,20 +22,25 @@ const MainContainer = styled.div`
   background-color: #fafafa;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 const client = new ApolloClient({
   uri: process.env.REACT_APP_SERVER_URL,
 });
 
 function App() {
+  const [token, setToken] = useState<string | undefined>(Cookies.get("token"));
+
   return (
     <MainContainer>
       <Router>
         <ApolloProvider client={client}>
-          <Header />
+          <Header token={token} setToken={setToken} />
           <Switch>
             <Route path="/login">
-              <Login />
+              <Login token={token} setToken={setToken} />
             </Route>
             <Route path="/register">
               <Register />

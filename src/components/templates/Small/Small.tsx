@@ -3,7 +3,9 @@ import React from "react";
 import styled from "styled-components";
 
 const Main = styled.main`
-  padding: 40px 50%;
+  padding: 40px 40%;
+  display: flex;
+  flex-direction: column;
 `;
 
 interface Props {

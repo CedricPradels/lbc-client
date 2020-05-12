@@ -18,9 +18,12 @@ const LOGIN = gql`
   }
 `;
 
-interface Props {}
+interface Props {
+  token: string | undefined;
+  setToken: React.Dispatch<React.SetStateAction<string | undefined>>;
+}
 
-const LoginForm: React.FC<Props> = () => {
+const LoginForm: React.FC<Props> = ({ token, setToken }) => {
   const history = useHistory();
 
   const [login, { data, loading }] = useLazyQuery(LOGIN, {
@@ -29,6 +32,7 @@ const LoginForm: React.FC<Props> = () => {
         resetFiedls();
       } else {
         Cookies.set("token", data.login.token);
+        setToken(data.login.token);
         history.push("/");
       }
     },
