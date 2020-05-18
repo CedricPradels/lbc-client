@@ -7,9 +7,13 @@ import Cookies from "js-cookie";
 
 import { PlusSquare, User, Search as Lens } from "react-feather";
 
-import Image from "../../atoms/Image";
 import Button from "../../atoms/Button";
 import logo from "../../../assets/images/logo.png";
+const Image = styled.img`
+  object-fit: scale-down;
+  height: 100%;
+  width: 100%;
+`;
 
 const StyledLogo = styled(Image)`
   width: 167px;

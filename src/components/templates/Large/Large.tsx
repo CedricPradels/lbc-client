@@ -3,7 +3,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Main = styled.main`
-  padding: 40px 20%;
+  padding: 20px 20%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `;
 const OnTop = styled.div`
   padding: 0;
