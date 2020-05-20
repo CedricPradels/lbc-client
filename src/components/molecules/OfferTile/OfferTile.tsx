@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Image from "../../atoms/Image";
+import { useHistory } from "react-router-dom";
 
 const StyledOfferTile = styled.div`
   display: grid;
@@ -43,11 +44,13 @@ interface Props {
   price: number;
   date: string;
   pictures: string[];
+  id: string;
 }
 
-const OfferTile: React.FC<Props> = ({ title, price, date, pictures }) => {
+const OfferTile: React.FC<Props> = ({ id, title, price, date, pictures }) => {
+  const history = useHistory();
   return (
-    <StyledOfferTile>
+    <StyledOfferTile onClick={() => history.push(`/offer/${id}`)}>
       <Image src={pictures[0]} />
       <InformationsWrapper>
         <div>

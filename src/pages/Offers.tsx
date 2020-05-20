@@ -61,7 +61,7 @@ const Offers: React.FC = () => {
         <div>
           <ResultsWrapper>
             {data.offers.result.map(({ id, ...rest }: Offer) => (
-              <OfferTile key={id} {...rest} />
+              <OfferTile key={id} id={id} {...rest} />
             ))}
           </ResultsWrapper>
           <Paginate
