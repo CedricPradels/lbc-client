@@ -14,6 +14,7 @@ const StyledBuyTile = styled.div`
   font-weight: bold;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  align-self: start;
 `;
 
 const UserAlias = styled.h2`
@@ -48,7 +49,7 @@ const BuyTile: React.FC<Props> = ({ userOffersCount, userAlias, offerId }) => {
     <StyledBuyTile>
       <Wrapper>
         <UserAlias>{userAlias}</UserAlias>
-        <OffersCount>{userOffersCount}</OffersCount>
+        <OffersCount>{userOffersCount} annonces en ligne</OffersCount>
       </Wrapper>
       <Wrapper>
         <Button onClick={() => history.push(`/offer/${offerId}/buy`)}>

@@ -7,15 +7,12 @@ import { ChevronLeft, ChevronRight } from "react-feather";
 const StyledImgCarousel = styled.div`
   position: relative;
   display: flex;
-  height: 300px;
-  width: 500px;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  width: 100%;
   background-color: silver;
 `;
 
 const Image = styled.img`
-  height: 100%;
   width: 100%;
   object-fit: contain;
 `;

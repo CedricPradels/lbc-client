@@ -6,6 +6,10 @@ import ImgCaroussel from "../ImgCarousel";
 
 const StyledOfferDetails = styled.div`
   font-family: "Roboto", sans-serif;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
 `;
 
 const TextWrapper = styled.div`
@@ -18,11 +22,13 @@ const TextWrapper = styled.div`
 
 const Title = styled.h2`
   font-size: 26px;
+  margin-bottom: 11px;
 `;
 
 const Price = styled.div`
   color: #f56b2a;
   font-size: 20px;
+  margin-bottom: 17px;
 `;
 
 const Description = styled.p`
@@ -53,9 +59,11 @@ const OfferDetails: React.FC<Props> = ({
       <ImgCaroussel imgTab={imgTab} />
 
       <TextWrapper>
-        <Title>{title}</Title>
-        <Price>{price}</Price>
-        <Description>{description}</Description>
+        <div>
+          <Title>{title}</Title>
+          <Price>{price} €</Price>
+          <Description>{description}</Description>
+        </div>
         <Date>{date}</Date>
       </TextWrapper>
     </StyledOfferDetails>
